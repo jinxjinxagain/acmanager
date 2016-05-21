@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>�ٶ�--���ķ��ʳ�����</title>
+<style>
+body{text-align:center;margin-top:3px}
+#wrap{width:650px;text-align:left;margin:auto}
+#logo{float:left;margin:0 3px 0 0}
+#logo img{border:0}
+#title{float:left;width:510px}
+#intitle{margin:20px 0 0 0;background-color:#e5ecf9;width:100%;font-weight:bold;font-size:14px;padding:3px 0 4px 10px}
+#content{clear:left;padding-top:60px;line-height:200%}
+#vf{margin-top:10px}
+#vf img{float:left;border:1px solid #000}
+#kw{font:16px Verdana;height:1.78em;padding-top:2px}
+#vf form{float:left;margin:12px 0 0 5px;padding:0}
+#ft{text-align:center}
+#ft,#ft a{color:#666;font-size:14px}
+</style>
+</head>
+<body>
+<div id="wrap">
+<div id="logo"><a href="http://www.baidu.com"><img alt="���ٶ���ҳ" title="���ٶ���ҳ" src="http://www.baidu.com/img/logo-yy.gif" width="137" height="46"></a></div>
+<div id="title"><div id="intitle">���ķ��ʳ�����</div></div>
+<div id="content">�ܱ�Ǹ�����ĵ��Ի����ڵľ����������쳣�ķ��ʣ��˿������޷���Ӧ���������� <br>������������֤�룬���ɻָ�ʹ�á�</div>
+<div id="vf">
+<img src="http://verify.baidu.com/cgi-bin/genimg?E7FA13E5AACC0FF207875BA002E7DFAA675FB1EF27A4F1C1603990E5861798D779A4E8E74FABF00C44FFF089DC54D9493592743B33609A815B5C" width="120" height="40">
+<form action="http://verify.baidu.com/verify">
+<input type="hidden" name="url" value="http://www.baidu.com/s?wd=hdu1044&vif=1">
+<input type="hidden" name="vcode" value="E7FA13E5AACC0FF207875BA002E7DFAA675FB1EF27A4F1C1603990E5861798D779A4E8E74FABF00C44FFF089DC54D9493592743B33609A815B5C">
+<input type="hidden" name="id" value="1463240421">
+<input type="hidden" name="di" value="1b5430e45d7c4e5a">
+<input type="text" size="6" maxlength="10" name="verifycode" id="kw"> 
+<input type="submit" value="�ύ">
+</form>
+</div>
+<div style="clear:left;height:90px"></div>
+<div id="ft">&copy;2014 Baidu <a href="http://www.baidu.com/duty/index.html">��������</a></div>
+</div>
+<script>
+(function(){
+    var rfr = window.document.location.href,
+        p = encodeURIComponent(rfr),
+        img = new Image(),
+        imgzd = new Image(),
+        re = /\/vcode\?http:\/\/(\S+)\.baidu/ig,r="";
+    img.src = "http://nsclick.baidu.com/v.gif?pid=201&pj=vcode&path="+p+"&t="+new Date().getTime();
+    r = re.exec(rfr);
+    if(r&&r[1]){imgzd.src = "http://"+r[1]+".baidu.com/v.gif?fr=vcode&url="+p+"&t="+new Date().getTime();}
+
+})();
+</script>
+</body>
+</html>

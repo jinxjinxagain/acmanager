@@ -1,0 +1,22 @@
+<%- contentFor('body') %>
+<div class="container">
+  <h1><%= title %></h1>
+  <% if (!user) { %>
+  <a href="/login">登录</a>
+  <% } else { %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <a href='/user'>用户中心</a>
+    </li>
+    <li class="list-group-item">
+      <a href='/problem'>题目管理</a>
+    </li>
+    <li class="list-group-item">
+      <a href='/stat'>用户统计</a>
+    </li>
+    <li class="list-group-item">
+      <a href='/contest'>训练系统</a>
+    </li>
+  </ul>
+  <% } %>
+</div>

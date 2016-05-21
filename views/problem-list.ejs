@@ -1,0 +1,80 @@
+<%- contentFor('head') %>
+<title> 武汉科技大学ACM信息管理系统 </title>
+<script src = "/javascripts/problem.js"> </script>
+<style type = "text/css">
+  .top-area {
+    padding: 10px;
+  }
+  .item-area {
+    border-top: solid 1px #ddd;
+    margin-bottom: 10px;
+    padding-top: 3px;
+  }
+  .item-head {
+    font: bold;
+    color: #fff;
+    background-color: #666;
+    border-top: solid 1px #ddd;
+  }
+</style>
+
+<%- contentFor('body') %>
+<nav class="navbar navbar-default">
+  <div class = "container">
+    <div class = "navbar-header">
+      <button type = "button" class = "navbar-toggle collapsed" data-toggle = "collapse" data-target = "#navbar" aria-expanded = "false" aria-controls = "navbar">
+      <span class = "sr-only">Toggle navigation</span>
+      <span class = "icon-bar"></span>
+      <span class = "icon-bar"></span>
+      <span class = "icon-bar"></span>
+      </button>
+      <a class = "navbar-brand" href = "/"> 武汉科技大学ACM信息管理系统 </a>
+    </div>
+    <div id = "navbar" class = "navbar-collapse collapse">
+      <ul class = "nav navbar-nav">
+        <% for(var t in ojs) {%>
+        <li class = "<%= oj == t ? 'active' : '' %>">
+          <a href = "/problem?oj=<%= ojs[t] %>"><%= ojs[t] %> </a>
+        <li>
+        <% } %>
+      </ul>
+      <ul class = "nav navbar-nav navbar-right">
+        <li> <a href = "#"> <%= user.username %> </a></li>
+        <li> <a href = "/logout"> 注销 </a> </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-6 col-md-offset-6 top-area">
+      <btn href = "javascript:void(0)" onclick = "refresh()" class = "btn btn-primary">刷新 </btn>
+    </div>
+  </div>
+  <div class = "row item-head">
+    <div class = "col-md-2">OJ</div>
+    <div class = "col-md-1">Pro.ID</div>
+    <div class = "col-md-3">name</div>
+    <div class = "col-md-3">tags</div>
+    <div class = "col-md-1">solution</div>
+    <div class = "col-md-2">Solved </div>
+  </div>
+  <% problemset.forEach(function(pro) { %>
+    <div class = "row item-area">
+      <div class = "col-md-2"> <%= pro.onlinejudge %> </div>
+      <div class = "col-md-1"> <%= pro.problemid %> </div>
+      <div class = "col-md-3"> <a id = "showproblem<%= pro.onlinejudge%><%= pro.problemid %>"  href = "javascript:void(0);" onclick = "gethref('<%= pro.problemid %>', '<%= pro.onlinejudge %>')" target="_blank"> <%= pro.title %> </a> </div>
+      <div class = "col-md-3"> 
+      <% pro.tags.forEach(function(tag, index) { %>
+        <% if (index != 0) {%>
+          ,
+        <% } %>
+        <a href = "/problem?tag=<%= tag %>" style = "text-decoration:none;color:#888888;"><%=tag%></a>
+      <% }) %>
+      </div>
+      <div class = "col-md-1"> <a href = "javascript:void(0);" onclick = "getsolution(this, '<%= pro.problemid %>', '<%= pro.onlinejudge %>')" target="_blank"> solution </a> </div>  
+      <div class = "col-md-2"> <span class = "glyphicon glyphicon-user mini-icon"> <%= pro.solvedcount %> </span></div>
+    </div>
+  <% }) %>
+</div>
